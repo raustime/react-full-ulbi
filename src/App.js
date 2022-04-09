@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react'
+import React, { useState } from 'react'
 import PostForm from './components/PostForm'
 // import Counter from './components/Counter'
 import PostList from './components/PostList'
+import MySelect from './components/UI/select/MySelect'
 
 import './styles/App.css'
 
@@ -25,6 +26,17 @@ function App() {
   return (
     <div className='App'>
       <PostForm create={createPost} />
+      <hr style={{ margin: '15px 0' }} />
+      <div>
+        <MySelect
+          defaultValue='Сортувати по'
+          options={[
+            { value: 'title', name: 'по назві' },
+            { value: 'description', name: 'по опису' },
+          ]}
+        />
+      </div>
+
       {posts.length ? (
         <PostList remove={removePost} posts={posts} title={'Перелік 1'} />
       ) : (
